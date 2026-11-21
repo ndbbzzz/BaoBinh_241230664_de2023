@@ -1,0 +1,35 @@
+﻿@model HangHoa
+@{
+    ViewData["Title"] = "Thêm hàng hóa";
+}
+
+<div class="content_top">
+    <div class="heading"><h3>Thêm hàng hóa mới</h3></div>
+    <div class="clear"></div>
+</div>
+
+<form asp-action="Create" method="post" style="padding:15px 0">
+    <div asp-validation-summary="All" style="color:blue"></div>
+
+    <p>
+        <label asp-for="MaLoai"></label><br />
+        <select asp-for="MaLoai" asp-items="ViewBag.MaLoai"><option value="">-- Chọn loại --</option></select>
+        <span asp-validation-for="MaLoai" style="color:blue"></span>
+    </p>
+    <p>
+        <label asp-for="TenHang"></label><br />
+        <input asp-for="TenHang" />
+        <span asp-validation-for="TenHang" style="color:blue"></span>
+    </p>
+    <p>
+        <label asp-for="Gia"></label><br />
+        <input asp-for="Gia" type="text" />
+        <span asp-validation-for="Gia" style="color:blue"></span>
+    </p>
+    <p>
+        <label asp-for="Anh"></label> (ví dụ: Img_1.jpg)<br />
+        <input asp-for="Anh" />
+        <span asp-validation-for="Anh" style="color:blue"></span>
+    </p>
+    <p><input type="submit" value="Thêm" /> <a asp-action="Index">Quay lại</a></p>
+</form>
